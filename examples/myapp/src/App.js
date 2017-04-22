@@ -4,19 +4,17 @@ import InputNumberIncrease from './containers/InputNumberIncrease'
 import { connect } from 'react-redux'
 
 
-let App = (props) => {
-    const {increase} = props;
+let App = () => {
     return (
       <div>
-        <MySmartComp increase={increase} />
+        <MySmartComp />
         <InputNumberIncrease />
       </div>
     )
 }
 
-
 const mapStateToProps = (state, ownProps) => ({
-    increase: state.increase
+
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 const MyComp = ({ counter, onClick }) => {
 
     return(
-        <p onClick={onClick}>
+        <p onClick={() => onClick()}>
             {counter}
         </p>
     )

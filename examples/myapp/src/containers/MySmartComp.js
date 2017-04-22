@@ -2,13 +2,16 @@ import { connect } from 'react-redux'
 import { increaseCounter } from '../actions'
 import MyComp from '../components/MyComp'
 
-const mapStateToProps = (state, ownProps) => ({
-    counter: state.counter,
-})
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        counter: state.counter,
+    }
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onClick: () => {
-      dispatch(increaseCounter(ownProps.increase||1))
+      dispatch(increaseCounter())
   }
 })
 
