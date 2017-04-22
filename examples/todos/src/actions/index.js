@@ -14,8 +14,3 @@ export const toggleTodo = (id) => ({
     type: 'TOGGLE_TODO',
     id
 })
-
-export const increaseCounter = (increase) => ({
-    type: 'INCREASE_COUNTER',
-    increase
-})

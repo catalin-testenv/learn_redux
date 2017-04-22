@@ -3,7 +3,7 @@ import { increaseCounter } from '../actions'
 import MyComp from '../components/MyComp'
 
 const mapStateToProps = (state, ownProps) => ({
-    counter: state.counter
+    counter: state.counter,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
