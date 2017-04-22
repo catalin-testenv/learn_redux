@@ -1,6 +1,6 @@
 import React from 'react'
-import MySmartComp from '../containers/MySmartComp'
-import InputNumberIncrease from '../containers/InputNumberIncrease'
+import MySmartComp from './containers/MySmartComp'
+import InputNumberIncrease from './containers/InputNumberIncrease'
 import { connect } from 'react-redux'
 
 
