@@ -11,6 +11,11 @@ export const setVisibilityFilter = (filter) => ({
 })
 
 export const toggleTodo = (id) => ({
-  type: 'TOGGLE_TODO',
-  id
+    type: 'TOGGLE_TODO',
+    id
+})
+
+export const increaseCounter = (increase) => ({
+    type: 'INCREASE_COUNTER',
+    increase
 })
