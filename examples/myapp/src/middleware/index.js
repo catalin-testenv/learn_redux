@@ -6,7 +6,9 @@ function createThunkMiddleware(extraArgument) {
     return ({ dispatch, getState }) => next => action => {
         console.log('thunk', typeof action)
         if (typeof action === 'function') {
-            return action(dispatch, getState, extraArgument);
+            let newAction = action(dispatch, getState, extraArgument);
+            console.log('thunk returned', newAction)
+            return newAction;
         }
 
         return next(action);
@@ -16,7 +18,16 @@ function createThunkMiddleware(extraArgument) {
 const thunk = createThunkMiddleware();
 thunk.withExtraArgument = createThunkMiddleware;
 
+
+const logger = store => next => action => {
+    console.log('logger#dispatching', action)
+    let result = next(action)
+    console.log('logger#next state', store.getState())
+    return result
+}
+
 export {
-    thunk
+    thunk,
+    logger
 }
 

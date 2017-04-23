@@ -7,8 +7,8 @@ export const increaseCounter = () => {
                 type: 'INCREASE_COUNTER',
                 increase: getState().increase
             })
-        }, 200)
-
+        }, 2000)
+        return ()=>{}
     }
 }
 
