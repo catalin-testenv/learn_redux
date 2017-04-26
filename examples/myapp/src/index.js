@@ -5,9 +5,9 @@ import { Provider } from 'react-redux'
 import App from './App'
 import reducer from './reducers'
 import { applyMiddleware } from 'redux'
-import {thunk, logger} from './middleware'
+import {thunk, logger, counterIsOdd} from './middleware'
 
-const store = createStore(reducer, applyMiddleware(logger, thunk))
+const store = createStore(reducer, applyMiddleware(logger, counterIsOdd, thunk))
 
 render(
   <Provider store={store}>

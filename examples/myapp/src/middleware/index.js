@@ -18,6 +18,18 @@ function createThunkMiddleware(extraArgument) {
 const thunk = createThunkMiddleware();
 thunk.withExtraArgument = createThunkMiddleware;
 
+const counterIsOdd = store => next => action => {
+    if (action.type === 'INCREASE_COUNTER' && ((store.getState().counter + action.increase) % 2)) {
+        store.dispatch({
+            type: 'ODD'
+        })
+    } else if (action.type === 'INCREASE_COUNTER' && !((store.getState().counter + action.increase) % 2)) {
+        store.dispatch({
+            type: 'EVEN'
+        })
+    }
+    return next(action)
+}
 
 const logger = store => next => action => {
     console.log('logger#dispatching', action)
@@ -28,6 +40,7 @@ const logger = store => next => action => {
 
 export {
     thunk,
-    logger
+    logger,
+    counterIsOdd
 }
 

@@ -6,6 +6,7 @@ import MyComp from '../components/MyComp'
 const mapStateToProps = (state, ownProps) => {
     return {
         counter: state.counter,
+        isOdd: state.counterIsOdd
     }
 }
 

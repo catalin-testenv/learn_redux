@@ -22,10 +22,23 @@ const counter = (state=1, action) => {
     }
 }
 
+const counterIsOdd = (state=true, action) => {
+    // console.log('oddOrEven', state, action)
+    switch (action.type) {
+        case 'ODD':
+            return true
+        case 'EVEN':
+            return false
+        default:
+            return state
+    }
+}
+
 
 const todoApp = combineReducers({
     counter,
     increase,
+    counterIsOdd
 })
 
 export default todoApp

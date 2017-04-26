@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 
-const MyComp = ({ counter, onClick }) => {
+const MyComp = ({ counter, isOdd, onClick }) => {
 
     return(
-        <p onClick={() => onClick()}>
+        <p onClick={() => onClick()} style={{color: isOdd ? 'red' : 'black'}}>
             {counter}
         </p>
     )
