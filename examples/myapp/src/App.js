@@ -1,29 +1,29 @@
-import React from 'react'
-import MySmartComp from './containers/MySmartComp'
-import InputNumberIncrease from './containers/InputNumberIncrease'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
+import Unit from './components/Unit';
+import Counter from './components/Counter';
 
 
 let App = () => {
     return (
       <div>
-        <MySmartComp />
-        <InputNumberIncrease />
+          <Unit />
+          <Counter />
       </div>
-    )
-}
+    );
+};
 
 const mapStateToProps = (state, ownProps) => ({
 
-})
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
-})
+});
 
 App = connect(
     mapStateToProps,
     mapDispatchToProps
-)(App)
+)(App);
 
-export default App
+export default App;
