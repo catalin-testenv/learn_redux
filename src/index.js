@@ -1,34 +1,18 @@
-import createStore from './createStore'
-import combineReducers from './combineReducers'
-import bindActionCreators from './bindActionCreators'
-import applyMiddleware from './applyMiddleware'
-import compose from './compose'
-import warning from './utils/warning'
+import React from 'react';
+import { render } from 'react-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import App from './App';
+import reducer from './reducers';
+import {thunk, timerMiddleware} from './middleware';
 
-/*
-* This is a dummy function to check if the function name has been altered by minification.
-* If the function has been minified and NODE_ENV !== 'production', warn the user.
-*/
-function isCrushed() {}
+const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ || (f => f);
 
-if (
-  process.env.NODE_ENV !== 'production' &&
-  typeof isCrushed.name === 'string' &&
-  isCrushed.name !== 'isCrushed'
-) {
-  warning(
-    'You are currently using minified code outside of NODE_ENV === \'production\'. ' +
-    'This means that you are running a slower development build of Redux. ' +
-    'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' +
-    'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' +
-    'to ensure you have the correct code for your production build.'
-  )
-}
+const store = createStore(reducer, compose(applyMiddleware(thunk, timerMiddleware), reduxDevTools()));
 
-export {
-  createStore,
-  combineReducers,
-  bindActionCreators,
-  applyMiddleware,
-  compose
-}
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
