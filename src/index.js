@@ -8,7 +8,9 @@ import {thunk, timerMiddleware} from './middleware';
 
 const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ || (f => f);
 
-const store = createStore(reducer, compose(applyMiddleware(thunk, timerMiddleware), reduxDevTools()));
+// const initialState = {unit: 2, counter: {started: null, value: 10}};
+const initialState = {};
+const store = createStore(reducer, initialState, compose(applyMiddleware(thunk, timerMiddleware), reduxDevTools()));
 
 render(
   <Provider store={store}>

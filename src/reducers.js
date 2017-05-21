@@ -25,6 +25,13 @@ const todoApp = combineReducers({
     counter
 });
 
+// function todoApp(state = {}, action) {
+//     return {
+//         unit: unit(state.unit, action),
+//         counter: counter(state.counter, action)
+//     };
+// }
+
 export default todoApp;
 
 
